@@ -40,7 +40,6 @@ export default function NewArrivals() {
               key={product.id}
               className="group relative w-full lg:min-w-[300px] lg:max-w-[300px] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 rounded-lg bg-gray-200 mx-auto"
             >
-              {/* Badge */}
               {product.badge && (
                 <div
                   className={`absolute top-3 right-3 ${product.badgeColor} text-white text-xs font-bold px-3 py-1 rounded z-10`}
@@ -49,7 +48,6 @@ export default function NewArrivals() {
                 </div>
               )}
 
-              {/* Image */}
               <div className="relative">
                 <img
                   src={product.image[0]}
@@ -61,12 +59,11 @@ export default function NewArrivals() {
                   alt={product.alt}
                   className="w-full h-72 object-cover absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:scale-105 rounded-t-lg"
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white text-center py-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-lg hover:cursor-pointer">
+                <div className="absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-70 text-white text-center py-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-lg hover:cursor-pointer">
                   <span className="font-semibold">View Details</span>
                 </div>
               </div>
 
-              {/* Details */}
               <div className="bg-gray-300 p-4 rounded-b-lg">
                 <p className="text-gray-500 text-sm mb-1">{product.category}</p>
                 <h3 className="text-gray-800 font-semibold text-lg leading-tight mb-2 truncate">

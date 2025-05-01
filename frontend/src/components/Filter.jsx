@@ -1,16 +1,12 @@
 import React from "react";
 
 const Filter = () => {
-  
   return (
     <div className="p-6 bg-gray-300 rounded-md shadow-sm">
-      {/* Active Filters Section */}
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-2xl font-semibold text-gray-800">Active filters</h2>
         <button className="text-sm text-gray-500 hover:underline">Clear</button>
       </div>
-
-      {/* Selected Filter */}
       <div className="flex flex-wrap items-center gap-2 mb-6">
         <span className="inline-flex items-center px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full">
           Rated 4 Out Of 5
@@ -19,8 +15,6 @@ const Filter = () => {
           </button>
         </span>
       </div>
-
-      {/* Product Filters */}
       <div className="space-y-4 mb-6">
         <h1 className="font-bold text-3xl text-gray-700">Product Filters</h1>
 
@@ -66,7 +60,6 @@ const Filter = () => {
         </div>
       </div>
 
-      {/* Results Info */}
       <div className="flex flex-wrap items-center justify-between border-t pt-4">
         <div className="flex items-center gap-2">
           <span className="text-blue-500 font-semibold">Filters:</span>
@@ -83,7 +76,6 @@ const Filter = () => {
             <span className="mx-1 text-gray-700 font-medium">15</span>
           </div>
 
-          {/* View Toggle */}
           <div className="flex items-center gap-2 text-gray-400">
             <button className="hover:text-blue-500">
               <i className="fas fa-th"></i>
@@ -93,7 +85,6 @@ const Filter = () => {
             </button>
           </div>
 
-          {/* Sorting Dropdown */}
           <select className="border border-gray-300 rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
             <option>Default sorting</option>
             <option>Price: Low to High</option>

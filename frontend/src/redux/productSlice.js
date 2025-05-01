@@ -15,7 +15,7 @@ const products = [
     price: "₹6500.00",
     rating: "⭐⭐⭐⭐⭐",
     quantity: 7,
-    cart: 6,
+    cart: 0,
     description:
       "Elevate your style with this tailored men's dress, crafted from premium breathable fabric for all-day comfort. Featuring a modern fit, sharp collar, and refined stitching, it's perfect for both casual outings and smart occasions. Pair it with jeans or chinos for a versatile, polished look.",
   },
@@ -89,7 +89,6 @@ const products = [
     price: "₹10300.00",
     rating: "⭐⭐⭐⭐⭐",
     quantity: 9,
-    cart: 0,
     description:
       "Elevate your style with this tailored men's dress, crafted from premium breathable fabric for all-day comfort. Featuring a modern fit, sharp collar, and refined stitching, it's perfect for both casual outings and smart occasions. Pair it with jeans or chinos for a versatile, polished look.",
   },
@@ -141,7 +140,7 @@ const products = [
     alt: "Watch",
     category: "Women's Midi",
     title: "Elena Floral Eyelet Cross-Stitch Plunge Dress in Romantic Lilac",
-    price: "$120.00",
+    price: "₹9800.00",
     rating: "⭐⭐⭐⭐⭐",
     quantity: 11,
     cart: 0,
@@ -157,38 +156,42 @@ const productSlice = createSlice({
   },
   reducers: {
     addToCart: (state, action) => {
-      const { id, count } = action.payload;
-      const product = state.items.find((p) => p.id === id);
-      if (product && product.quantity > 0) {
-        product.cart += count;
-        product.quantity -= count;
+      const { id, quantity } = action.payload;
+      const existingItem = state.items.find((i) => i.id === id);
+      if (existingItem) {
+        existingItem.quantity -= quantity;
+        existingItem.cart += quantity;
       }
     },
     removeFromCart: (state, action) => {
-      const product = state.items.find(p => p.id === action.payload);
-      if (product && product.cart > 0) {
-        product.quantity += product.cart; 
-        product.cart = 0;                
-      }
-    },    
-    incrementQuantity: (state, action) => {
-      const item = state.items.find((i) => i.id === action.payload);
-      if (item && item.cart > 0) {
-        item.quantity += 1;
-        item.cart -= 1;
+      const { id } = action.payload;
+      const existingItem = state.items.find((i) => i.id === id);
+      if (existingItem) {
+        existingItem.quantity += existingItem.cart;
+        existingItem.cart = 0;
       }
     },
-    
-    decrementQuantity: (state, action) => {
-      const item = state.items.find((i) => i.id === action.payload);
-      if (item && item.quantity > 0) {
-        item.quantity -= 1;
-        item.cart += 1;
+    incrementQuantity: (state, action) => {
+      const { id } = action.payload;
+      const existingItem = state.items.find((i) => i.id === id);
+      if (existingItem) {
+        const availableStock = existingItem.quantity - existingItem.cart;
+        if (availableStock > 0) {
+          existingItem.cart += 1;
+        }
       }
-    },    
-    // clearCart: (state) => {
-    //   state.items = [];
-    // },
+    },
+    decrementQuantity: (state, action) => {
+      const { id } = action.payload;
+      const existingItem = state.items.find((i) => i.id === id);
+      if (existingItem && existingItem.cart>1) {
+        existingItem.quantity += 1;
+        existingItem.cart -= 1;
+      }
+    },
+    clearCart: (state) => {
+      state.items = products;
+    },
   },
 });
 

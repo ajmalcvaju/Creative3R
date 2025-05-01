@@ -3,6 +3,7 @@ import HeaderTwo from "../components/HeaderTwo";
 import { useSelector, useDispatch } from "react-redux";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import Header from "../components/Header";
 
 const ShoppingListTwo = () => {
   const [maxPrice, setMaxPrice] = useState(12000);
@@ -63,13 +64,10 @@ const ShoppingListTwo = () => {
 
   return (
     <>
-      <HeaderTwo />
+      <HeaderTwo/>
       <div className="flex flex-col min-h-screen">
-        {/* Wrapper for Sidebar + Content */}
         <div className="flex flex-col md:flex-row flex-grow bg-gray-200">
-          {/* Sidebar */}
           <aside className="w-full md:w-64 bg-gray-300 p-6 text-gray-800 space-y-10 border-b md:border-b-0 md:border-r border-gray-300">
-            {/* Price Filter */}
             <div>
               <h2 className="text-xl font-semibold mb-4 text-gray-700">
                 Price
@@ -86,8 +84,6 @@ const ShoppingListTwo = () => {
                 <span className="font-bold text-indigo-600">₹{maxPrice}</span>
               </div>
             </div>
-
-            {/* Sort By */}
             <div>
               <h2 className="text-xl font-semibold mb-4 text-gray-700">
                 Sort By
@@ -131,60 +127,56 @@ const ShoppingListTwo = () => {
             </div>
           </aside>
 
-          {/* Product Grid */}
           {currentProducts.length > 0 ? (
             <div className="flex flex-col">
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center p-6 bg-gray-200 flex-grow">
                 {currentProducts.map((product) => (
                   <Link to={`/product/${product.id}`}>
-                  <div
-                    key={product.id}
-                    className="group relative w-80 sm:w-72 lg:w-80 overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 rounded-lg bg-gray-200"
-                  >
-                    {/* Badge */}
-                    {product.badge && (
-                      <div
-                        className={`absolute top-3 right-3 ${product.badgeColor} text-white text-xs font-bold px-3 py-1 rounded z-10`}
-                      >
-                        {product.badge}
-                      </div>
-                    )}
+                    <div
+                      key={product.id}
+                      className="group relative w-80 sm:w-72 lg:w-80 overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 rounded-lg bg-gray-200"
+                    >
+                      {product.badge && (
+                        <div
+                          className={`absolute top-3 right-3 ${product.badgeColor} text-white text-xs font-bold px-3 py-1 rounded z-10`}
+                        >
+                          {product.badge}
+                        </div>
+                      )}
 
-                    {/* Product Image */}
-                    <div className="relative">
-                      <img
-                        src={product.image[0]}
-                        alt={product.alt}
-                        className="w-full h-80 object-cover transition-transform duration-300 group-hover:scale-105 rounded-t-lg"
-                      />
-                      <img
-                        src={product.image[1]}
-                        alt={product.alt}
-                        className="w-full h-80 object-cover absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:scale-105 rounded-t-lg"
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white text-center py-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-lg">
-                        <span className="font-semibold">View Details</span>
+                      <div className="relative">
+                        <img
+                          src={product.image[0]}
+                          alt={product.alt}
+                          className="w-full h-80 object-cover transition-transform duration-300 group-hover:scale-105 rounded-t-lg"
+                        />
+                        <img
+                          src={product.image[1]}
+                          alt={product.alt}
+                          className="w-full h-80 object-cover absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:scale-105 rounded-t-lg"
+                        />
+                        <div className="absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-70 text-white text-center py-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-lg">
+                          <span className="font-semibold">View Details</span>
+                        </div>
                       </div>
-                    </div>
 
-                    {/* Product Details */}
-                    <div className="bg-gray-300 p-4 rounded-b-lg">
-                      <p className="text-gray-500 text-sm mb-1">
-                        {product.category}
-                      </p>
-                      <h3 className="text-gray-800 font-semibold text-lg leading-tight mb-2 truncate">
-                        {product.title}
-                      </h3>
-                      <div className="flex items-center justify-between mt-2">
-                        <span className="text-xl font-bold text-gray-900">
-                          {product.price}
-                        </span>
-                        <div className="text-yellow-400 text-sm">
-                          {product.rating}
+                      <div className="bg-gray-300 p-4 rounded-b-lg">
+                        <p className="text-gray-500 text-sm mb-1">
+                          {product.category}
+                        </p>
+                        <h3 className="text-gray-800 font-semibold text-lg leading-tight mb-2 truncate">
+                          {product.title}
+                        </h3>
+                        <div className="flex items-center justify-between mt-2">
+                          <span className="text-xl font-bold text-gray-900">
+                            {product.price}
+                          </span>
+                          <div className="text-yellow-400 text-sm">
+                            {product.rating}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
                   </Link>
                 ))}
               </div>
@@ -252,7 +244,7 @@ const ShoppingListTwo = () => {
           )}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };
