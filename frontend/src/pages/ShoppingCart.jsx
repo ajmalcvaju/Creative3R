@@ -139,7 +139,7 @@ const ShoppingCart = () => {
               </button>
               <button
                 onClick={() => dispatch(clearCart())}
-                className="bg-gray-200 hover:bg-gray-300 text-black px-4 py-2 rounded text-sm hover:cursor-pointer"
+                className="bg-gray-300 hover:bg-gray-400 text-black px-4 py-2 rounded text-sm hover:cursor-pointer"
               >
                 Clear Cart
               </button>
