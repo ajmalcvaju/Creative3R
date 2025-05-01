@@ -1,8 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import Filter from "../components/Filter";
-import ShoppingList from "./ShoppingList";
 import HeaderTwo from "../components/HeaderTwo";
-import Header from "../components/Header";
 import { useSelector, useDispatch } from "react-redux";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
