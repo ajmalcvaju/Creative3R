@@ -62,9 +62,7 @@ const HeaderTwo = () => {
               </Link>
             </div>
             <div className="cursor-pointer">
-              <Link to="/login">
                 <FiUser className="text-3xl text-gray-700 hover:text-blue-600 transition duration-300" />
-              </Link>
             </div>
             <button
               className="md:hidden text-3xl"
