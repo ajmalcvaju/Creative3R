@@ -3,3 +3,12 @@ body, html {
   padding: 0;
   overflow-x: hidden;
 }
+/* Add this in your CSS file */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* For IE and Edge */
+  scrollbar-width: none; /* For Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}

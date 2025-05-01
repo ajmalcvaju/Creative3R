@@ -13,10 +13,10 @@ const Header = () => {
         </div>
         <ul className="flex space-x-10 text-white font-semibold text-lg">
           <li className="hover:text-yellow-400 transition duration-300">
-            <a href="#">Home</a>
+            <a href="/">Home</a>
           </li>
           <li className="hover:text-yellow-400 transition duration-300">
-            <a href="#">Shop</a>
+            <a href="/products">Shop</a>
           </li>
           <li className="hover:text-yellow-400 transition duration-300">
             <a href="#">About Us</a>
@@ -27,6 +27,7 @@ const Header = () => {
         </ul>
         <div className="flex items-center space-x-6">
           <button className="relative">
+            <a href="/cart"/>
             <img
               src="https://cdn-icons-png.flaticon.com/512/263/263142.png"
               alt="Cart"
@@ -35,9 +36,6 @@ const Header = () => {
             <span className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
               3
             </span>
-          </button>
-          <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold px-6 py-2 rounded-md shadow-md transition duration-300 hover:scale-105">
-            Login
           </button>
         </div>
       </nav>

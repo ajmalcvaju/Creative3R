@@ -42,7 +42,7 @@ const Footer = () => {
             <p className="text-sm text-center md:text-left">
               Lucknow Building,
               <br />
-              Maryanad, Near Maryanad AUP School, Kochikode,
+              Mayanad, Near Mayanad AUP School, Kochikode,
               <br />
               Pin: 673008
             </p>
